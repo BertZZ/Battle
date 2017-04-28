@@ -1,7 +1,7 @@
 require 'game'
 
 describe Game do
-subject(:game) { described_class.new("Bertie", player2) }
+subject(:game) { described_class.new(player1 ,player2) }
 let (:player1) { double :player }
 let (:player2) { double :player }
 

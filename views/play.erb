@@ -1,7 +1,7 @@
-<h1> "Greetings <%=@player1.name%> and <%=@player2.name%>. Get Ready to Battle </h1>
+<h1> "Greetings <%=@game.player1.name%> and <%=@game.player2.name%>. Get Ready to Battle </h1>
 
-  <h2> "<%=@player1.name%> has <%=@hp1%> hitpoints" </h2>
-  <h2> "<%=@player2.name%> has <%=@hp2%> hitpoints" </h2>
+  <h2> "<%=@game.player1.name%> has <%=@game.player1.hit_points%> hitpoints" </h2>
+  <h2> "<%=@game.player2.name%> has <%=@game.player2.hit_points%> hitpoints" </h2>
 <form action = '/attack'>
   <button type='submit' value="Attack">Attack!
   </button>

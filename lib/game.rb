@@ -15,4 +15,16 @@ class Game
   def switch_turn
     @players.reverse!
   end
+
+  def game_over?
+    losing_players.any?
+  end
+
+  def loser
+    losing_players.first
+  end
+
+  def losing_players
+    players.select { |player| player.hit_points <= 0 }
+  end
 end

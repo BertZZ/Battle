@@ -23,6 +23,12 @@ class Battle < Sinatra::Application
     @game = $game
     @game.attack
     @game.switch_turn
+    redirect '/loose' if @game.game_over?
     erb(:attack)
+  end
+
+  get '/loose' do
+    @game = $game
+    erb(:game_over)
   end
 end

@@ -12,3 +12,8 @@ def sign_in_and_play_and_attack
   click_button 'Submit'
   click_button 'Attack'
 end
+
+def attack_and_switch
+  click_button 'Attack'
+  click_button 'Switch'
+end

@@ -10,17 +10,21 @@ class Battle < Sinatra::Application
   end
 
   post'/names' do
-    $game = Game.new(Player.new(params[:player1]), Player.new(params[:player2]))
+    player1 = Player.new params[:player1]
+    player2 = Player.new params[:player2]
+    @game = Game.create(player1, player2)
     redirect to('/play')
   end
 
+  before do
+    @game = Game.instance
+  end
+
   get'/play' do
-    @game = $game
     erb(:play)
   end
 
   get '/attack' do
-    @game = $game
     @game.attack
     @game.switch_turn
     redirect '/loose' if @game.game_over?
@@ -28,7 +32,6 @@ class Battle < Sinatra::Application
   end
 
   get '/loose' do
-    @game = $game
     erb(:game_over)
   end
 end

@@ -7,8 +7,9 @@ feature 'Game over' do
     end
 
     scenario 'Player 1 loses' do
-      click_button 'Attack'
+      19.times sign_in_and_play_and_attack
       expect(page).to have_content 'Berie loses!'
+    end
     end
   end
 end
